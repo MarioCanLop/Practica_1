@@ -28,6 +28,14 @@ public class Programa {
         listaEmpleados.remove(empleado);
     }
 
+    public void AnadirInvitado(Invitado invitado){
+        listaInvitados.add(invitado);
+    }
+    public void EliminarInvitado(Invitado invitado){
+        listaInvitados.remove(invitado);
+    }
+
+
 
     public String getNombre() {
         return nombre;
@@ -68,4 +76,73 @@ public class Programa {
     public void setDirector(Empleado director) {
         this.director = director;
     }
+
+    public void invitadosTemporada(int temporada){
+        System.out.println( "Hay " + listaInvitados.toArray().length + " invitados  ");
+        for(Invitado invitado: listaInvitados){
+            if (invitado.getTemporada()==temporada) {
+                System.out.println("- Nombre Invitado= " + invitado.getNombre() + " Profesion Invitado= " + invitado.getProfesion() );
+            }
+        }
+
+    }
+
+    public int vecesInvitado(String nombre){
+        int cont = 0;
+        for (Invitado invitado:listaInvitados){
+            if (invitado.getNombre().equals(nombre)){
+                cont++;
+            }
+        }
+
+        return cont;
+    }
+
+    public void  rastreadoInvitado(String nombre){
+        System.out.println("El invitado " + nombre + " a ido al programa " + vecesInvitado(nombre)+ " veces");
+        for (Invitado invitado:listaInvitados){
+            if (invitado.getNombre().equals(nombre)){
+                System.out.println("Fecha de visita= " +invitado.getFecha_visita() + " Temporada= "+ invitado.getTemporada());
+            }
+        }
+    }
+
+    public boolean buscarInvitado(String nombre){
+        boolean asistio = false;
+        for (Invitado invitado:listaInvitados){
+            if (invitado.getNombre().equals(nombre)){
+                asistio= true;
+            }
+        }
+
+        return asistio ;
+    }
+
+    public Invitado primerPrograma(String nombre){
+        Invitado invitadoPrimero = null;
+        for (Invitado invitado:listaInvitados) {
+            if (invitado.getNombre().equals(nombre)){
+                if (invitadoPrimero==null) {
+                    invitadoPrimero = invitado;
+                } else {
+                  if (invitadoPrimero.getFecha_visita().isAfter(invitado.getFecha_visita()))
+                      invitadoPrimero=invitado;
+                }
+
+            }
+        }
+        return invitadoPrimero;
+    }
+
+    @Override
+    public String toString() {
+        return "Programa{" +
+                "nombre='" + nombre + '\'' +
+                ", cadena=" + cadena +
+                ", listaEmpleados=" + listaEmpleados +
+                ", listaInvitados=" + listaInvitados +
+                ", director=" + director +
+                '}';
+    }
+
 }

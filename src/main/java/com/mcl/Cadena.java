@@ -27,4 +27,12 @@ public class Cadena {
     public void setListaProgramas(ArrayList<Programa> listaProgramas) {
         this.listaProgramas = listaProgramas;
     }
+
+    @Override
+    public String toString() {
+        return "Cadena{" +
+                "nombre='" + nombre + '\'' +
+                ", listaProgramas=" + listaProgramas +
+                '}';
+    }
 }

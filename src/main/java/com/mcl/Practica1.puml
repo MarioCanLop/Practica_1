@@ -1,0 +1,54 @@
+@startuml
+
+class Programa {
+    +String nombre
+    +Cadena cadena
+    +ArrayList<Empleado> listaEmpleados
+    +ArrayList<Invitado> listaInvitados
+    +Empleado director
+    +static int temporadas
+    +Programa(String nombre, Cadena cadena, Empleado director)
+    +void AnadirEmpleado(Empleado empleado)
+    +void EliminarEmpleado(Empleado empleado)
+    +void AnadirInvitado(Invitado invitado)
+    +void EliminarInvitado(Invitado invitado)
+    +void invitadosTemporada(int temporada)
+    +int vecesInvitado(String nombre)
+    +void rastreadoInvitado(String nombre)
+    +boolean buscarInvitado(String nombre)
+    +Invitado primerPrograma(String nombre)
+}
+
+class Empleado {
+    +String nombre
+    +String cargo
+    +Empleado director
+    +String id
+    +static int cantidadEmpleados
+    +static final String id_empleado
+    +Empleado(String nombre, String cargo)
+    +void setCargo(String cargo)
+    +void setDirector(Empleado director)
+}
+
+class Invitado {
+    +String nombre
+    +String profesion
+    +LocalDate fecha_visita
+    +int temporada
+    +Invitado(String nombre, String profesion, LocalDate fecha_visita, int temporada)
+}
+
+class Cadena {
+    +String nombre
+    +ArrayList<Programa> listaProgramas
+    +Cadena(String nombre)
+}
+
+Programa "1" -- "*" Empleado : tiene
+Programa "1" -- "*" Invitado : invita
+Programa "1" -- "1" Cadena : pertenece a
+Empleado "1" -- "1" Empleado : es dirigido por
+Cadena "1" -- "*" Programa : emite
+
+@enduml

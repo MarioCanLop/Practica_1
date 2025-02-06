@@ -12,7 +12,7 @@ public class Empleado {
 
 
 
-    public Empleado(String nombre,String cargo, Empleado director){
+    public Empleado(String nombre,String cargo ){
         this.nombre=nombre;
 
         setCargo(cargo);
@@ -56,5 +56,15 @@ public class Empleado {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", director=" + director +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

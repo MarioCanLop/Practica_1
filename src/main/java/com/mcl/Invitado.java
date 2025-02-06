@@ -16,7 +16,7 @@ public class Invitado {
         this.nombre=nombre;
         this.profesion=profesion;
         this.temporada=temporada;
-        fecha_visita = setFecha_visita();
+        setFecha_visita();
     }
 
     public String getNombre() {
@@ -55,5 +55,16 @@ public class Invitado {
 
     public void setTemporada(int temporada) {
         this.temporada = temporada;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Invitado{" +
+                ", nombre='" + nombre + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", fecha_visita=" + fecha_visita +
+                ", temporada=" + temporada +
+                '}';
     }
 }
