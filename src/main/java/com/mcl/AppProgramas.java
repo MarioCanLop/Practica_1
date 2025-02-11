@@ -24,13 +24,17 @@ public class AppProgramas {
 
 
 
-        Programa el_hormiguero = new Programa("El Hormiguero",antena3,Director1);
+        Programa el_hormiguero = new Programa("El Hormiguero",antena3);
         System.out.println(el_hormiguero);
         System.out.println(antena3);
+        antena3.anadirProgramas(el_hormiguero);
+        el_hormiguero.AnadirEmpleado(Director1);
+        el_hormiguero.AnadirEmpleado(Empleado1);
 
-        Programa espejoPublico = new Programa("Espejo Publico",antena3,Director1);
+        Programa espejoPublico = new Programa("Espejo Publico",antena3);
         System.out.println(espejoPublico);
         System.out.println(antena3);
+        antena3.anadirProgramas(espejoPublico);
 
         espejoPublico.AnadirInvitado(Invitado2);
 
